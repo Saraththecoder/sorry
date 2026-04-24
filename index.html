@@ -1037,14 +1037,6 @@
         <h1>I'm <em>so</em> sorry.</h1>
         <p class="sub">You mean everything to me.</p>
 
-        <div class="divider">✦</div>
-
-        <!-- Secret message (shown on reveal) -->
-        <div class="secret-msg" id="msg">
-            I messed up. I miss you. Please don't stay mad. 🤍
-        </div>
-
-        <button class="btn" id="btn">Come here 🤍</button>
     </div>
 
     <!-- Countdown Timer Overlay -->
@@ -1080,8 +1072,6 @@
         /* ── Swipe Logic ── */
         const back = document.getElementById('photoBack');
         const front = document.getElementById('photoFront');
-        const msg = document.getElementById('msg');
-        const btn = document.getElementById('btn');
         const hint = document.querySelector('.swipe-hint');
 
         let startX = null, moved = 0, revealed = false;
@@ -1091,7 +1081,6 @@
             revealed = true;
             back.classList.add('swiped');
             front.classList.add('revealed');
-            msg.classList.add('show');
             if (hint) hint.style.opacity = '0';
             launchCelebration();
 
@@ -1125,7 +1114,6 @@
         stage.addEventListener('touchstart', start, { passive: true });
         stage.addEventListener('touchmove', move, { passive: true });
         stage.addEventListener('touchend', end);
-        btn.addEventListener('click', reveal);
 
         /* ── Celebration burst ── */
         function launchCelebration() {
