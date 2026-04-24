@@ -499,10 +499,12 @@
             pointer-events: none;
             transition: opacity 0.5s ease;
         }
+
         .timer-overlay.active {
             opacity: 1;
             pointer-events: all;
         }
+
         .timer-wrapper {
             display: flex;
             flex-direction: column;
@@ -510,12 +512,14 @@
             justify-content: center;
             margin: auto;
         }
+
         .timer-circle {
             position: relative;
             width: 160px;
             height: 160px;
             flex-shrink: 0;
         }
+
         .timer-circle svg {
             position: absolute;
             top: 0;
@@ -524,11 +528,13 @@
             height: 100%;
             transform: rotate(-90deg);
         }
+
         .timer-circle .track {
             fill: none;
             stroke: rgba(255, 255, 255, 0.15);
             stroke-width: 8;
         }
+
         .timer-circle .progress {
             fill: none;
             stroke: var(--rose);
@@ -539,6 +545,7 @@
             transition: stroke-dashoffset 1s linear;
             filter: drop-shadow(0 0 10px rgba(232, 99, 122, 0.8));
         }
+
         .timer-number {
             position: absolute;
             top: 50%;
@@ -552,6 +559,7 @@
             line-height: 1;
             white-space: nowrap;
         }
+
         .timer-label {
             margin-top: 24px;
             color: rgba(255, 255, 255, 0.85);
@@ -587,10 +595,12 @@
             padding: 16px;
             box-sizing: border-box;
         }
+
         .sorry-modal-overlay.active {
             opacity: 1;
             pointer-events: all;
         }
+
         .sorry-modal {
             background: rgba(255, 255, 255, 0.18);
             backdrop-filter: blur(24px) saturate(200%);
@@ -607,16 +617,19 @@
             box-shadow: 0 16px 48px rgba(232, 99, 122, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
             margin: auto;
         }
+
         .sorry-modal-overlay.active .sorry-modal {
             transform: scale(1) translateY(0);
             opacity: 1;
         }
+
         .sorry-modal .modal-emoji {
             font-size: 3.5rem;
             margin-bottom: 14px;
             display: block;
             animation: heartbeat 1.5s ease-in-out infinite;
         }
+
         .sorry-modal h2 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.6rem, 5vw, 2.2rem);
@@ -625,6 +638,7 @@
             text-shadow: 0 2px 12px rgba(122, 45, 62, 0.4);
             line-height: 1.2;
         }
+
         .sorry-modal .modal-text {
             font-family: 'Lora', serif;
             font-style: italic;
@@ -633,6 +647,7 @@
             line-height: 1.75;
             margin-bottom: 24px;
         }
+
         .sorry-modal .modal-close {
             display: flex;
             align-items: center;
@@ -653,6 +668,7 @@
             max-width: 280px;
             margin: 0 auto;
         }
+
         .sorry-modal .modal-close:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 32px rgba(232, 99, 122, 0.6);
@@ -667,45 +683,120 @@
                 overflow-y: auto;
                 padding: 24px 0 40px;
             }
+
             .card {
                 border-radius: 24px;
                 padding: clamp(18px, 5vw, 32px);
                 max-width: 400px;
                 width: 94vw;
             }
+
             .photo-stage {
                 width: min(58vw, 200px);
                 margin-bottom: 20px;
             }
-            h1  { font-size: clamp(1.6rem, 5vw, 2.2rem); }
-            .sub { margin-bottom: 20px; }
-            .btn { max-width: 240px; padding: 13px 20px; font-size: 0.95rem; }
+
+            h1 {
+                font-size: clamp(1.6rem, 5vw, 2.2rem);
+            }
+
+            .sub {
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                max-width: 240px;
+                padding: 13px 20px;
+                font-size: 0.95rem;
+            }
 
             /* Timer - tablet */
-            .timer-circle { width: 140px; height: 140px; }
-            .timer-number { font-size: 3.2rem; }
-            .timer-label  { font-size: 0.82rem; }
+            .timer-circle {
+                width: 140px;
+                height: 140px;
+            }
+
+            .timer-number {
+                font-size: 3.2rem;
+            }
+
+            .timer-label {
+                font-size: 0.82rem;
+            }
 
             /* Modal - tablet */
-            .sorry-modal { max-width: 380px; padding: clamp(22px, 5vw, 40px); }
-            .sorry-modal .modal-emoji { font-size: 3rem; }
-            .sorry-modal h2 { font-size: clamp(1.4rem, 5vw, 2rem); }
+            .sorry-modal {
+                max-width: 380px;
+                padding: clamp(22px, 5vw, 40px);
+            }
+
+            .sorry-modal .modal-emoji {
+                font-size: 3rem;
+            }
+
+            .sorry-modal h2 {
+                font-size: clamp(1.4rem, 5vw, 2rem);
+            }
         }
 
         /* Mobile (≤480px) */
         @media (max-width: 480px) {
-            body { padding: 20px 0 env(safe-area-inset-bottom, 24px); }
+            body {
+                padding: 20px 0 env(safe-area-inset-bottom, 24px);
+            }
 
-            .card { border-radius: 22px; padding: 20px 18px; width: 96vw; }
-            .hearts { gap: 8px; margin-bottom: 16px; }
-            .heart  { font-size: 1.3rem; }
-            .photo-stage { width: min(70vw, 190px); margin-bottom: 16px; }
-            .swipe-hint  { font-size: 0.68rem; margin-bottom: 14px; }
-            h1  { font-size: clamp(1.5rem, 7vw, 1.9rem); margin-bottom: 6px; }
-            .sub { font-size: 0.88rem; margin-bottom: 18px; }
-            .secret-msg { font-size: 0.85rem; padding: 10px 14px; margin-bottom: 18px; }
-            .divider { margin-bottom: 18px; }
-            .btn { max-width: 100%; width: 100%; padding: 14px 16px; font-size: 0.95rem; border-radius: 40px; }
+            .card {
+                border-radius: 22px;
+                padding: 20px 18px;
+                width: 96vw;
+            }
+
+            .hearts {
+                gap: 8px;
+                margin-bottom: 16px;
+            }
+
+            .heart {
+                font-size: 1.3rem;
+            }
+
+            .photo-stage {
+                width: min(70vw, 190px);
+                margin-bottom: 16px;
+            }
+
+            .swipe-hint {
+                font-size: 0.68rem;
+                margin-bottom: 14px;
+            }
+
+            h1 {
+                font-size: clamp(1.5rem, 7vw, 1.9rem);
+                margin-bottom: 6px;
+            }
+
+            .sub {
+                font-size: 0.88rem;
+                margin-bottom: 18px;
+            }
+
+            .secret-msg {
+                font-size: 0.85rem;
+                padding: 10px 14px;
+                margin-bottom: 18px;
+            }
+
+            .divider {
+                margin-bottom: 18px;
+            }
+
+            .btn {
+                max-width: 100%;
+                width: 100%;
+                padding: 14px 16px;
+                font-size: 0.95rem;
+                border-radius: 40px;
+            }
 
             /* Timer - mobile: center everything, shrink circle */
             .timer-overlay {
@@ -713,16 +804,32 @@
                 justify-content: center;
                 align-items: center;
             }
+
             .timer-wrapper {
                 width: 100%;
                 max-width: 200px;
                 align-items: center;
             }
-            .timer-circle { width: 120px; height: 120px; }
+
+            .timer-circle {
+                width: 120px;
+                height: 120px;
+            }
+
             .timer-circle .track,
-            .timer-circle .progress { stroke-width: 7; }
-            .timer-number { font-size: 2.8rem; }
-            .timer-label  { font-size: 0.72rem; margin-top: 14px; padding: 0; }
+            .timer-circle .progress {
+                stroke-width: 7;
+            }
+
+            .timer-number {
+                font-size: 2.8rem;
+            }
+
+            .timer-label {
+                font-size: 0.72rem;
+                margin-top: 14px;
+                padding: 0;
+            }
 
             /* Modal - mobile: full width, properly padded */
             .sorry-modal-overlay {
@@ -730,15 +837,30 @@
                 align-items: center;
                 justify-content: center;
             }
+
             .sorry-modal {
                 width: 92vw;
                 max-width: 92vw;
                 padding: 24px 18px;
                 border-radius: 22px;
             }
-            .sorry-modal .modal-emoji { font-size: 2.6rem; margin-bottom: 10px; }
-            .sorry-modal h2 { font-size: clamp(1.25rem, 6vw, 1.6rem); margin-bottom: 10px; }
-            .sorry-modal .modal-text  { font-size: 0.86rem; margin-bottom: 18px; line-height: 1.6; }
+
+            .sorry-modal .modal-emoji {
+                font-size: 2.6rem;
+                margin-bottom: 10px;
+            }
+
+            .sorry-modal h2 {
+                font-size: clamp(1.25rem, 6vw, 1.6rem);
+                margin-bottom: 10px;
+            }
+
+            .sorry-modal .modal-text {
+                font-size: 0.86rem;
+                margin-bottom: 18px;
+                line-height: 1.6;
+            }
+
             .sorry-modal .modal-close {
                 padding: 13px 20px;
                 font-size: 0.9rem;
@@ -748,24 +870,63 @@
 
         /* Small phones (≤360px) */
         @media (max-width: 360px) {
-            .card { padding: 16px 14px; }
-            .photo-stage { width: min(72vw, 170px); }
-            h1 { font-size: 1.45rem; }
+            .card {
+                padding: 16px 14px;
+            }
+
+            .photo-stage {
+                width: min(72vw, 170px);
+            }
+
+            h1 {
+                font-size: 1.45rem;
+            }
 
             /* Timer - tiny screen */
-            .timer-wrapper { max-width: 180px; }
-            .timer-circle { width: 100px; height: 100px; }
+            .timer-wrapper {
+                max-width: 180px;
+            }
+
+            .timer-circle {
+                width: 100px;
+                height: 100px;
+            }
+
             .timer-circle .track,
-            .timer-circle .progress { stroke-width: 6; }
-            .timer-number { font-size: 2.4rem; }
-            .timer-label  { font-size: 0.65rem; }
+            .timer-circle .progress {
+                stroke-width: 6;
+            }
+
+            .timer-number {
+                font-size: 2.4rem;
+            }
+
+            .timer-label {
+                font-size: 0.65rem;
+            }
 
             /* Modal - tiny screen */
-            .sorry-modal { padding: 18px 14px; border-radius: 18px; }
-            .sorry-modal .modal-emoji { font-size: 2.2rem; }
-            .sorry-modal h2 { font-size: 1.15rem; }
-            .sorry-modal .modal-text  { font-size: 0.8rem; }
-            .sorry-modal .modal-close { padding: 11px 16px; font-size: 0.84rem; }
+            .sorry-modal {
+                padding: 18px 14px;
+                border-radius: 18px;
+            }
+
+            .sorry-modal .modal-emoji {
+                font-size: 2.2rem;
+            }
+
+            .sorry-modal h2 {
+                font-size: 1.15rem;
+            }
+
+            .sorry-modal .modal-text {
+                font-size: 0.8rem;
+            }
+
+            .sorry-modal .modal-close {
+                padding: 11px 16px;
+                font-size: 0.84rem;
+            }
         }
 
         /* Landscape phones */
@@ -904,9 +1065,9 @@
     <div class="sorry-modal-overlay" id="sorryModal">
         <div class="sorry-modal">
             <div class="modal-emoji">💌</div>
-            <h2>I'm truly sorry</h2>
+            <h2>Oye selfie</h2>
             <p class="modal-text">
-                Oye selfie , inkosari ila repeat avvadu, promise.
+                Inkosari ila repeat avvadu, promise.
                 You're the most important person in my life, and I never want
                 to see you sad because of me or anyone. I promise to be better. 💕<br><br>
                 Nannu kshamisthava cheppu? 🥺
