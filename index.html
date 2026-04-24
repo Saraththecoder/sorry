@@ -184,8 +184,9 @@
 
         .photo-back {
             z-index: 1;
-            transform: scale(0.95) translateY(10px) rotate(-2deg);
-            filter: brightness(0.7);
+            transform: scale(1) translateY(0) rotate(0deg);
+            opacity: 0;
+            filter: brightness(1);
         }
 
         .photo-front {
@@ -496,10 +497,7 @@
 
             // Bring back photo forward based on drag distance
             const progress = Math.min(Math.abs(currentX) / 200, 1);
-            const backScale = 0.95 + (progress * 0.05);
-            const backRot = -2 + (progress * 2);
-            back.style.transform = `scale(${backScale}) translateY(${10 - progress * 10}px) rotate(${backRot}deg)`;
-            back.style.filter = `brightness(${0.7 + progress * 0.3})`;
+            back.style.opacity = progress;
         });
 
         front.addEventListener('pointerup', (e) => {
@@ -519,18 +517,20 @@
 
                 // Bring back photo fully into view
                 back.style.transform = 'scale(1) translateY(0) rotate(0deg)';
+                back.style.opacity = 1;
                 back.style.filter = 'brightness(1)';
 
                 swipeHint.style.opacity = 0;
 
-                // Start countdown after a brief delay
-                setTimeout(startCountdown, 600);
+                // Start countdown after a 2.5s delay
+                setTimeout(startCountdown, 2500);
             } else {
                 // Reset if not swiped far enough
                 front.style.transform = 'translateX(0) rotate(0deg)';
                 front.style.opacity = 1;
-                back.style.transform = 'scale(0.95) translateY(10px) rotate(-2deg)';
-                back.style.filter = 'brightness(0.7)';
+                back.style.transform = 'scale(1) translateY(0) rotate(0deg)';
+                back.style.opacity = 0;
+                back.style.filter = 'brightness(1)';
             }
             currentX = 0;
         });
