@@ -61,43 +61,6 @@
             }
         }
 
-        /* ===================== PARTICLES ===================== */
-        #particles {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            bottom: -60px;
-            font-size: 1.4rem;
-            opacity: 0;
-            animation: floatUp linear infinite;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0deg) scale(0.8);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 1;
-            }
-
-            90% {
-                opacity: 0.6;
-            }
-
-            100% {
-                transform: translateY(-110vh) rotate(360deg) scale(1.2);
-                opacity: 0;
-            }
-        }
-
         /* ===================== CARD ===================== */
         .card {
             position: relative;
@@ -1010,9 +973,6 @@
 </head>
 
 <body>
-    <!-- Floating particle container -->
-    <div id="particles"></div>
-
     <div class="card">
         <!-- Pulsing hearts -->
         <div class="hearts">
@@ -1082,7 +1042,6 @@
             back.classList.add('swiped');
             front.classList.add('revealed');
             if (hint) hint.style.opacity = '0';
-            launchCelebration();
 
             // Start countdown timer 2 seconds after reveal
             setTimeout(startCountdown, 2000);
@@ -1114,40 +1073,6 @@
         stage.addEventListener('touchstart', start, { passive: true });
         stage.addEventListener('touchmove', move, { passive: true });
         stage.addEventListener('touchend', end);
-
-        /* ── Celebration burst ── */
-        function launchCelebration() {
-            const emojis = ['❤️', '💕', '🌹', '✨', '💖', '🫶'];
-            for (let i = 0; i < 18; i++) {
-                const el = document.createElement('span');
-                el.className = 'particle';
-                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                el.style.left = Math.random() * 100 + 'vw';
-                el.style.fontSize = (Math.random() * 1.2 + 0.8) + 'rem';
-                el.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                el.style.animationDelay = (Math.random() * 1.5) + 's';
-                document.getElementById('particles').appendChild(el);
-                setTimeout(() => el.remove(), 7000);
-            }
-        }
-
-        /* ── Ambient floating hearts ── */
-        (function spawnAmbient() {
-            const emojis = ['❤️', '💕', '✨', '🌸'];
-            function spawn() {
-                const el = document.createElement('span');
-                el.className = 'particle';
-                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                el.style.left = Math.random() * 100 + 'vw';
-                el.style.fontSize = (Math.random() * 0.9 + 0.6) + 'rem';
-                el.style.animationDuration = (Math.random() * 6 + 8) + 's';
-                el.style.animationDelay = '0s';
-                document.getElementById('particles').appendChild(el);
-                setTimeout(() => el.remove(), 15000);
-            }
-            spawn();
-            setInterval(spawn, 2200);
-        })();
 
         /* ── Countdown Timer ── */
         function startCountdown() {
@@ -1184,13 +1109,11 @@
         function showSorryModal() {
             const modal = document.getElementById('sorryModal');
             modal.classList.add('active');
-            launchCelebration(); // another burst of emojis!
         }
 
         document.getElementById('modalClose').addEventListener('click', () => {
             const modal = document.getElementById('sorryModal');
             modal.classList.remove('active');
-            launchCelebration(); // final celebration burst
         });
     </script>
 </body>
